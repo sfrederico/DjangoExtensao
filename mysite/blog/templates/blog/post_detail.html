@@ -1,0 +1,33 @@
+{% extends 'blog/base.html' %}
+
+{% load static %}
+
+{% block head %}
+<title>Samu's Blog</title>
+<link href= "{% static 'css/post_detail.css' %} " rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<div class="post">
+    <h2> {{post.titulo}} </h2>
+    <p> Publicado em: {{post.data_pub}} </p>
+    <p> Autor: {{post.autor}} </p>
+    <p> {{post.text}} </p>
+</div>
+
+<div class="comentarios">
+    <h4>COMENTÁRIOS</h4>
+    {% for comentario in comentarios %}
+        <p>Autor: {{comentario.autor}}</p>
+        <p>Postado em: {{comentario.data}}</p>
+        <p>{{comentario.texto}}</p>
+    {% endfor %}
+</div>
+
+
+
+
+
+
+{% endblock %}
